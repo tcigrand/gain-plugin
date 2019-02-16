@@ -59,7 +59,7 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
     
     double rawVolume;
-//    AudioProcessorValueTreeState treeState;
+    AudioProcessorValueTreeState treeState;
 
 private:
     //==============================================================================
