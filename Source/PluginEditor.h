@@ -28,7 +28,7 @@ public:
     void resized() override;
     void sliderValueChanged(Slider *slider) override;
     
-//    ScopedPointer <AudioProcessorValueTreeState::SliderAttachment> sliderAttachment;
+    ScopedPointer <AudioProcessorValueTreeState::SliderAttachment> sliderAttachment;
 
 private:
     Slider gainSlider;		

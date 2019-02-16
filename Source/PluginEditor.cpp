@@ -19,7 +19,7 @@ GainTestingPluginAudioProcessorEditor::GainTestingPluginAudioProcessorEditor (Ga
     // editor's size to whatever you need it to be.
     setSize (200, 400);
     
-//    sliderAttachment = new AudioProcessorValueTreeState::SliderAttachment(processor.treeState, GAIN_ID, gainSlider);
+    sliderAttachment = new AudioProcessorValueTreeState::SliderAttachment(processor.treeState, GAIN_ID, gainSlider);
     
     gainSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
     gainSlider.setTextBoxStyle(Slider::TextBoxBelow, true, 100, 35);
