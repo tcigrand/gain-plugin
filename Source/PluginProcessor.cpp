@@ -26,7 +26,7 @@ GainTestingPluginAudioProcessor::GainTestingPluginAudioProcessor()
     treeState(*this, nullptr)
 #endif
 {
-    NormalisableRange<float> gainRange(0, 1);
+    NormalisableRange<float> gainRange(-48, 6);
     treeState.createAndAddParameter(GAIN_ID, GAIN_NAME, GAIN_NAME, gainRange, 0, nullptr, nullptr);
     //(GAIN_ID, GAIN_NAME, GAIN_NAME, gainRange, 0.5f, nullptr, nullptr);
 }

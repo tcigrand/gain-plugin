@@ -13,20 +13,20 @@
 
 //==============================================================================
 GainTestingPluginAudioProcessorEditor::GainTestingPluginAudioProcessorEditor (GainTestingPluginAudioProcessor& p)
-    : AudioProcessorEditor (&p), processor (p)
+    : AudioProcessorEditor (&p), processor (p),
+    sliderAttachment(p.treeState, GAIN_ID, gainSlider)
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     setSize (200, 400);
     
-    sliderAttachment = new AudioProcessorValueTreeState::SliderAttachment(processor.treeState, GAIN_ID, gainSlider);
-    
-    gainSlider.setSliderStyle(Slider::SliderStyle::LinearVertical);
+    gainSlider.setSliderStyle(Slider::LinearVertical);
     gainSlider.setTextBoxStyle(Slider::TextBoxBelow, true, 100, 35);
-    gainSlider.setRange(0, 1);
-    gainSlider.setValue(0.5);
-    gainSlider.addListener(this);
+    gainSlider.setRange(-48, 6);
+    gainSlider.setValue(0);
     addAndMakeVisible(&gainSlider);
+    
+    gainSlider.addListener(this);
 }
 
 GainTestingPluginAudioProcessorEditor::~GainTestingPluginAudioProcessorEditor()
@@ -51,6 +51,6 @@ void GainTestingPluginAudioProcessorEditor::sliderValueChanged(Slider *slider)
 {
     if (slider == &gainSlider)
     {
-        processor.rawVolume = gainSlider.getValue();
+        processor.rawVolume = pow(10, gainSlider.getValue()/20);
     }
 }
