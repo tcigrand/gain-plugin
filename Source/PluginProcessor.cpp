@@ -21,13 +21,13 @@ GainTestingPluginAudioProcessor::GainTestingPluginAudioProcessor()
                       #endif
                        .withOutput ("Output", AudioChannelSet::stereo(), true)
                      #endif
-                       ),
-    rawVolume(0),
-    treeState(*this, nullptr)
+                       )
+//    rawVolume(0),
+//    treeState(*this, nullptr)
 #endif
 {
-    NormalisableRange<float> gainRange(0, 1);
-    treeState.createAndAddParameter(GAIN_ID, GAIN_NAME, GAIN_NAME, gainRange, 0, nullptr, nullptr);
+//    NormalisableRange<float> gainRange(0, 1);
+//    treeState.createAndAddParameter(GAIN_ID, GAIN_NAME, GAIN_NAME, gainRange, 0, nullptr, nullptr);
     //(GAIN_ID, GAIN_NAME, GAIN_NAME, gainRange, 0.5f, nullptr, nullptr);
 }
 
